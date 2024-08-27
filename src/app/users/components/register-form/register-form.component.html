@@ -1,0 +1,48 @@
+
+<div class="container">
+    <div class="form-container">
+        <h1>Regiter</h1>
+        <mat-form-field>
+            <mat-label>Enter your username</mat-label>
+            <input 
+              matInput 
+              [(ngModel)]="user.username"
+              (blur)="updateUsernameErrorMessage()"
+              required
+            />
+            @if (usernameControl.invalid) {
+                <mat-error>{{errorMessage()}}</mat-error>
+            }
+          </mat-form-field>
+    
+        <mat-form-field>
+            <mat-label>Enter your password</mat-label>
+            <input 
+              matInput 
+              [(ngModel)]="user.password"
+              [type]="hide() ? 'password' : 'text'"   
+              (blur)="updatePasswordErrorMessage()"
+              required
+            />
+            @if (passwordControl.invalid) {
+                <mat-error>{{errorMessage()}}</mat-error>
+            }
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="clickEvent($event)"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide()"
+            >
+              <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+        
+        <button mat-raised-button color="primary" (click)="registerUser()">Register</button>
+
+        <p>Already have and account? <a href="/login">Sign in</a></p>
+        
+    </div>
+</div>
+
+

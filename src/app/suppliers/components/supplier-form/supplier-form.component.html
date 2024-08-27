@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="form-container">
+    <h1>{{ isEditMode ? 'Edit Supplier' : 'Create New Supplier' }}</h1>
+    <form [formGroup]="supplierForm">
+
+      <mat-form-field>
+        <mat-label>Company Name</mat-label>
+        <input matInput formControlName="companyName" required [(ngModel)]="supplier.companyName" />
+        <mat-error *ngIf="supplierForm.get('companyName')?.invalid">{{ getErrorMessage('companyName') }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Brand Name</mat-label>
+        <input matInput formControlName="brandName" required [(ngModel)]="supplier.brandName"/>
+        <mat-error *ngIf="supplierForm.get('brandName')?.invalid">{{ getErrorMessage('brandName') }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Tax Identification</mat-label>
+        <input matInput formControlName="taxIdentification" type="number" required [(ngModel)]="supplier.taxIdentification"/>
+        <mat-error *ngIf="supplierForm.get('taxIdentification')?.invalid">{{ getErrorMessage('taxIdentification') }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Telephone Number</mat-label>
+        <input matInput formControlName="telephoneNumber" required [(ngModel)]="supplier.telephoneNumber"/>
+        <mat-error *ngIf="supplierForm.get('telephoneNumber')?.invalid">{{ getErrorMessage('telephoneNumber') }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" required [(ngModel)]="supplier.email"/>
+        <mat-error *ngIf="supplierForm.get('email')?.invalid">{{ getErrorMessage('email') }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Website</mat-label>
+        <input matInput formControlName="website" [(ngModel)]="supplier.website"/>
+        <mat-error *ngIf="supplierForm.get('website')?.invalid">{{ getErrorMessage('website') }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Country</mat-label>
+        <input matInput formControlName="country" required [(ngModel)]="supplier.country"/>
+        <mat-error *ngIf="supplierForm.get('country')?.invalid">{{ getErrorMessage('country') }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Annual Billing In Dollars</mat-label>
+        <input matInput formControlName="annualBillingInDollars" type="number" required [(ngModel)]="supplier.annualBillingInDollars"/>
+        <mat-error *ngIf="supplierForm.get('annualBillingInDollars')?.invalid">{{ getErrorMessage('annualBillingInDollars') }}</mat-error>
+      </mat-form-field>
+
+    </form>
+
+    <div class="button-container">
+      <button mat-raised-button color="primary" type="submit" (click)="saveSupplier()">Save</button>
+      <button mat-raised-button color="warn" (click)="cancel()">Cancel</button>
+    </div>
+  </div>
+</div>
