@@ -9,6 +9,12 @@
 </mat-toolbar>
 
 <div class="container">
+
+  <mat-form-field color="primary">
+    <mat-label >Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" #input>
+  </mat-form-field>
+
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort aria-label="suppliers info">
   
